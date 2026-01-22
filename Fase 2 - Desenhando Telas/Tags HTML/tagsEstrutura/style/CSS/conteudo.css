@@ -1,0 +1,467 @@
+* /* Seletor universal */
+{
+    margin: 0; /* margin - margem externa */
+    padding: 0; /* padding - margem interna */
+    box-sizing: border-box; /* Inclui o padding e a borda na largura e altura totais do elemento */
+    font-size: 20px; /* Definindo o tamanho da fonte */
+}
+
+/* Seletor por elemento */
+
+h1 /* Seletor título 1 */
+{
+    font-size: 100px;
+}
+
+p /* Seletor paragrafo */
+{
+    font-family: Arial, sans-serif; /* Definindo a fonte do parágrafo */
+    font-weight: bold; /* Deixando o texto em negrito */
+    font-style: italic; /* Deixando o texto em itálico */
+    text-align: center; /* Centralizando o texto */
+}
+
+/* Seletor por Id */
+
+#p1 /* Seletor do parágrafo com id "p1" , utilizando #*/
+{
+    font-size: 70px;
+    color: red;
+}
+
+/* Seletor por Classe */
+
+.p2 /* Seletor do parágrafo com classe "p2" , utilizando . */
+{
+    font-size: 40px;
+    color: green;
+}
+
+/* Seletor de atributos */
+
+[pais="Argentina"] /* Seleciona elementos com o atributo pais igual a "Argentina" */
+{
+    color: aqua;
+}
+
+[pais="Brasil"] /* Seleciona elementos com o atributo pais igual a "Brasil" */
+{
+    color: green;
+}
+
+[pais="Portugal"] /* Seleciona elementos com o atributo pais igual a "Portugal" */
+{
+    color: red;
+}
+
+[pais="Alemanha"] /* Seleciona elementos com o atributo pais igual a "Alemanha" */
+{
+    color: black;    
+}
+
+/* Tipos de operadores no seletor de atributos
+= Igual
+~= Contém um valor na lista
+| Começa com o valor seguido ou não de hífen
+^ Começa com o valor
+$ Termina com o valor
+* Contém o valor em qualquer posição
+*/
+
+/* Agrupamento de seletores */
+
+h2, #igor /* Agrupando seletores de título 2 e parágrafo com id "igor" */
+{
+    background: yellow;
+}
+
+/* Combinação de seletores que é o seletor descendente */
+
+/* Combinador Filho */
+
+ul > li /* Seleciona apenas os elementos <li> que são filhos diretos do elemento <ul> */
+{
+    border: 1px solid black;
+}
+
+/* Combinador descendente */
+
+ul span /* Seleciona todos os elementos <span> que são descendentes do elemento <ul> */
+{
+    color: purple;
+}
+
+/* Combinador irmão */
+
+#principal ~li /* Seleciona todos os elementos <li> que são irmãos do elemento com id "principal" */
+{
+    background: gray;
+}
+
+/* Combinador irmão adjacente */
+
+#principal + li /* Seleciona o elemento <li> que é irmão adjacente do elemento com id "principal" */
+{
+    background: orange;
+}
+
+/* Dimensionamento de elementos width e height */
+
+#id1
+{
+    width: 200px; /* Definindo a largura do elemento */
+    border: solid 2px black; /* Definindo a borda do elemento */
+    height: 200px; /* Definindo a altura do elemento */
+
+}
+
+/* Com porcentagem */
+
+#id2
+{
+    width: 50%; /* Definindo a largura do elemento como 50% do elemento pai */
+    border: solid 2px black; /* Definindo a borda do elemento */
+    height: 50%; /* Definindo a altura do elemento como 50% do elemento pai */
+
+}
+
+/* Com viewport 
+viewport width (vw) e viewport height (vh) que correspondem à largura e altura da janela de visualização do navegador
+*/
+
+#id3
+{
+    width: 50vw; /* Definindo a largura do elemento como 50% da largura da viewport */
+    border: solid 2px black; /* Definindo a borda do elemento */
+    height: 50vh; /* Definindo a altura do elemento como 50% da altura da viewport */
+
+}
+
+/* min-max width e height */
+
+#id4
+{
+    max-width: 300px; /* Definindo a largura máxima do elemento */
+    min-width: 100px; /* Definindo a largura mínima do elemento */
+    border: solid 2px black; /* Definindo a borda do elemento */
+    max-height: 300px; /* Definindo a altura máxima do elemento */
+    min-height: 100px;
+    width: 50%; 
+    height: 50%;
+}
+
+/* Margem */
+
+/* Tipos de margem */
+#id1
+{
+    margin: 20px; /* Definindo a margem externa de todos os lados */
+    margin-top: 30px; /* Definindo a margem externa superior */
+    margin-right: 40px; /* Definindo a margem externa direita */
+    margin-bottom: 50px; /* Definindo a margem externa inferior */
+    margin-left: 60px; /* Definindo a margem externa esquerda */
+
+}
+
+#id2
+{
+    margin: 10px 20px 30px 40px; /* Definindo a margem externa em ordem: superior, direita, inferior, esquerda */
+}
+
+/* Padding : espaçamento interno */
+
+#id3
+{
+    box-sizing: border-box; /* Inclui o padding e a borda na largura e altura totais do elemento */
+    padding: 20px; /* Definindo o padding de todos os lados */
+    padding-top: 30px; /* Definindo o padding superior */
+    padding-right: 40px; /* Definindo o padding direito */
+    padding-bottom: 50px; /* Definindo o padding inferior */
+    padding-left: 60px; /* Definindo o padding esquerdo */
+
+}
+
+#id4
+{
+    padding: 10px 20px 30px 40px; /* Definindo o padding em ordem: superior, direita, inferior, esquerda */
+}
+
+/* Box-sizing : controla como a largura e altura de um elemento são calculadas */
+
+/* Tipos de box-sizing
+
+border-box : inclui o padding e a borda na largura e altura totais do elemento
+content-box : a largura e altura incluem apenas o conteúdo, excluindo padding e borda
+
+*/
+
+#id5
+{
+    box-sizing: content-box; /* A largura e altura incluem apenas o conteúdo, excluindo padding e borda */
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border: 5px solid black;
+}
+
+/* Fonte */
+
+/* Propriedade color */
+
+p
+{
+    color: black; /* Definindo a cor do texto pelo nome da cor */
+}
+
+h1
+{
+    color: #FF5733; /* Definindo a cor do texto pelo código hexadecimal */
+}
+
+h2
+{
+    color: rgb(0, 128, 0); /* Definindo a cor do texto pelo código RGB */
+}
+
+h3
+{
+    color: rgba(0, 0, 255, 0.5); /* Definindo a cor do texto pelo código RGBA com transparência */
+}
+
+/* Propriedade font-size */
+
+p
+{
+    font-size: 32px; /* Definindo o tamanho da fonte em pixels */
+}
+
+h1
+{
+    font-size: 5em; /* Definindo o tamanho da fonte em em (relativo ao elemento pai) */
+}
+
+h2
+{
+    font-size: 150%; /* Definindo o tamanho da fonte em porcentagem (relativo ao elemento pai) */
+}
+
+h3
+{
+    font-size: 2rem; /* Definindo o tamanho da fonte em rem (relativo ao elemento raiz) */
+}
+
+/* Propriedade font-family que é a família de fontes utilizada para renderizar o texto */
+
+/* Fontes mais comuns
+
+arial, Helvetica, Times New Roman, Courier New, Verdana, Georgia, Tahoma, Trebuchet MS, Comic Sans MS
+
+*/
+
+p
+{
+    font-family: Arial, sans-serif; /* Definindo a fonte como Arial, com fallback para sans-serif */
+}
+
+/* Propriedade font-weight que é o peso da fonte (normal, bold, lighter, bolder) e font style que é o estilo da fonte (normal, italic, oblique) */
+
+/* Valores possíveis do font weight: normal(normal), bold(Negrito), lighter(Light), bolder(Bolder) */
+/* Valores possíveis do font style: normal, italic, oblique */
+h1
+{
+    font-weight: lighter; /* Definindo o peso da fonte como negrito */
+    font-style: italic; /* Definindo o estilo da fonte como itálico */
+}
+
+
+/* Propriedade text-align que é o alinhamento do texto */
+
+i
+{
+    text-align: right; /* Alinhando o texto à direita */
+    text-align: center; /* Alinhando o texto ao centro */
+    text-align: left; /* Alinhando o texto à esquerda */
+    text-align: justify; /* Justificando o texto */
+}
+
+/* Propriedade text-transform que é a transformação do texto */
+
+p
+{
+    text-transform: uppercase; /* Transformando o texto para maiúsculas */
+    
+}
+
+i
+{
+    text-transform: lowercase; /* Transformando o texto para minúsculas */
+}
+
+h1
+{
+    text-transform: capitalize; /* Capitalizando a primeira letra de cada palavra */
+}
+
+/* Propriedade text-decoration que é a decoração do texto */
+
+#id6
+{
+    text-decoration: underline; /* Adicionando sublinhado ao texto */
+    
+}
+
+p
+{
+    text-decoration: line-through; /* Adicionando linha através do texto */
+}
+
+i
+{
+    text-decoration: overline; /* Adicionando linha acima do texto */
+}
+
+/* Propriedade line-height que é a altura da linha */
+
+p
+{
+    line-height: 1.5; /* Definindo a altura da linha como 1.5 vezes o tamanho da fonte */
+}
+
+i
+{
+    line-height: 2; /* Definindo a altura da linha como 2 vezes o tamanho da fonte */
+}
+
+h1
+{
+    line-height: 1.2; /* Definindo a altura da linha como 1.2 vezes o tamanho da fonte */
+}
+
+/* Adicionando bordas */
+
+/* Comando border - border(nome do elemento): 5px(tamanho) solid(cor) */
+
+#id7
+{
+    border: 5px solid black; /* Adicionando borda sólida preta de 5px */
+    border: 3px dashed red; /* Adicionando borda tracejada vermelha de 3px */
+    border: 2px dotted blue; /* Adicionando borda pontilhada azul de 2px */
+    border: 4px double green; /* Adicionando borda dupla verde de 4px */
+    border: 6px groove purple; /* Adicionando borda em relevo roxa de 6px */
+}
+
+/* Arredondando bordas */
+
+#id7
+{
+    border-radius: 30px; /* Arredondando as bordas com 30px de raio */
+}
+
+/* Alterando a cor do fundo */
+
+body
+{
+    background-color: lightgray; /* Definindo a cor do fundo como cinza claro */
+}
+
+/* Combinando cores com background linear Gradient */
+
+#id7
+{
+    background: linear-gradient(to right, red, yellow); /* Definindo um gradiente linear do vermelho para o amarelo da esquerda para a direita */
+}
+
+/* Combinando cores com background radial Gradient */
+
+#id7
+{
+    background: radial-gradient(circle, blue, green); /* Definindo um gradiente radial do azul para o verde em forma de círculo */
+}
+
+/* Adicionando imagens de fundo */
+
+#id3
+{
+    background-image: url('leoMessi.webp'); /* Adicionando uma imagem de fundo */
+}
+
+/* Alinhando imagem de fundo */
+
+#id3
+{
+    background-position: center; /* Centralizando a imagem de fundo */
+    background-position: top right; /* Alinhando a imagem de fundo ao topo direito */
+    background-position: bottom left; /* Alinhando a imagem de fundo ao canto inferior esquerdo */
+}
+
+
+/* Definindo a posição de um elemento com position relative que 
+é relativo à sua posição normal
+*/
+
+#id3
+{
+    position: relative; /* Definindo a posição como relativa */
+    top: 20px; /* Movendo o elemento 20px para baixo */
+    left: 30px; /* Movendo o elemento 30px para a direita */
+}
+
+/* Definindo a posição de um elemento com position absolute que 
+é relativo ao elemento pai mais próximo
+*/
+
+#id4
+{
+    position: absolute; /* Definindo a posição como absoluta */
+    top: 20px; /* Movendo o elemento 20px para baixo */
+    left: 30px; /* Movendo o elemento 30px para a direita */
+}
+
+/* Definindo a posição de um elemento com position fixed que 
+é relativo à janela de visualização do navegador
+*/
+
+#id5
+{
+    position: fixed; /* Definindo a posição como fixa */
+    top: 20px; /* Movendo o elemento 20px para baixo */
+    left: 30px; /* Movendo o elemento 30px para a direita */
+}
+
+/* Ocultando elemento com overflow */
+
+#id3
+{
+    width: 100px; /* Definindo a largura do elemento */
+    height: 100px; /* Definindo a altura do elemento */
+    overflow: hidden; /* Ocultando o conteúdo que ultrapassa as dimensões do elemento */
+}
+
+/* Adaptando o layout para diversas plataformas utilizando media queries */
+
+@media (max-width: 600px) /* Aplicando estilos para telas com largura máxima de 600px */
+{
+    body
+    {
+        background-color: lightblue; /* Alterando a cor do fundo para azul claro */
+    }
+
+    p
+    {
+        font-size: 16px; /* Reduzindo o tamanho da fonte do parágrafo */
+    }
+}
+
+@media (min-width: 1080px) {
+
+    body
+    {
+        background-color: lightgreen; /* Alterando a cor do fundo para verde claro */
+    }
+
+    p
+    {
+        font-size: 18px; /* Reduzindo o tamanho da fonte do parágrafo */
+    }
+    
+}

@@ -1,0 +1,103 @@
+/* flexbox.css
+O flexbox serve para criar layouts flexíveis e responsivos de forma mais simples. 
+Dentro de um container contem row que são as linhas e columns que são as colunas.
+*/
+
+
+.container
+{
+    display: flex; /* Define o contêiner como um flexbox */
+    flex-direction: row; /* Define a direção dos itens como coluna */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se necessário */
+    justify-content: center; /* Alinha os itens no centro do contêiner na horizontal */
+    align-items: center; /* Alinha os itens no centro do contêiner na vertical */
+    width: 700px; /* Define a largura do contêiner */
+    height: 400px; /* Define a altura do contêiner */
+    border: solid 2px red; /* Adiciona uma borda vermelha ao contêiner */
+    gap: 10px; /* Define o espaçamento entre os itens */
+    
+}
+
+/* Flex-direction propriedades:
+row: os itens são organizados em uma linha horizontal (padrão).
+row-reverse: os itens são organizados em uma linha horizontal, mas na ordem inversa
+column: os itens são organizados em uma coluna vertical.
+column-reverse: os itens são organizados em uma coluna vertical, mas na ordem inversa
+*/
+
+/* Flex-wrap propriedades:
+nowrap: os itens não se quebram em novas linhas (padrão).
+wrap: os itens se quebram em novas linhas quando necessário.
+wrap-reverse: os itens se quebram em novas linhas, mas na ordem inversa.
+*/
+
+/* Alinhando na horizontal com justify-content */
+
+/* Propriedades do justify-content:
+flex-start: os itens são alinhados no início do container.
+flex-end: os itens são alinhados no final do container.
+center: os itens são alinhados no centro do container.
+space-between: os itens são distribuídos com espaçamento igual entre eles.
+space-around: os itens são distribuídos com espaçamento igual ao redor de cada item.
+space-evenly: os itens são distribuídos com espaçamento igual entre eles e ao redor de cada item.
+*/
+
+/* Alinhando na vertical com align-items */
+
+/* Propriedades do align-items:
+flex-start: os itens são alinhados no início do container.
+flex-end: os itens são alinhados no final do container.
+center: os itens são alinhados no centro do container.
+baseline: os itens são alinhados na linha de base do texto.
+stretch: os itens são esticados para preencher o container (padrão).
+*/
+
+/* Ajustando o espaçamento entre os itens com gap */
+
+/* Propriedade gap:
+gap: define o espaçamento entre os itens do flexbox.
+*/
+
+/* Redimensionando os item com Flex Shrink */
+
+/* Propriedade flex-shrink:
+flex-shrink: define o fator de redução de um item flexível.
+0 - o item não encolhe.
+1 - o item encolhe proporcionalmente (padrão).
+2 ou mais - o item encolhe mais rapidamente.
+*/
+
+/* Aumentando o tamanho dos elementos com Flex Grow */
+
+/* Propriedade flex-grow:
+flex-grow: define o fator de crescimento de um item flexível.
+0 - o item não cresce.
+1 - o item cresce proporcionalmente (padrão).
+2 ou mais - o item cresce mais rapidamente.
+*/
+
+/* Definindo a ordem dos elementos com Order */
+
+/* Propriedade order:
+order: define a ordem dos itens dentro do contêiner flexível.
+Itens com valores menores aparecem primeiro.
+O valor padrão é 0.
+*/
+
+
+
+#principal
+{
+    flex-shrink: 2; 
+    flex-grow: 1;
+    order: 1;
+
+}
+
+.item
+{
+    width: 100px;
+    height: 100px;
+    border: solid 2px black;
+}
+
