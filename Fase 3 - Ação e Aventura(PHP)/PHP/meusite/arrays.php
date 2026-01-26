@@ -178,4 +178,56 @@
         echo "- " . $frutas[$i] . "<br>";
     }
 
+    // Arrays associativos
+
+    $pessoa = [
+        "nome" => "João",
+        "idade" => 30,
+        "cidade" => "São Paulo"
+    ];
+
+    echo "Nome: " . $pessoa["nome"] . "<br>"; // João
+    echo "Idade: " . $pessoa["idade"] . "<br>"; //
+    echo "Cidade: " . $pessoa["cidade"] . "<br>"; //
+
+    // Adicionando um novo par chave-valor
+
+    $pessoa["profissao"] = "Desenvolvedor";
+    echo "Profissão: " . $pessoa["profissao"] . "<br>";
+
+    // Iterando sobre um array associativo
+
+    echo "Dados da pessoa:<br>";
+    foreach ($pessoa as $chave => $valor) {
+        echo $chave . ": " . $valor . "<br>";
+    }
+
+    // Funções úteis para Arrays associativos
+
+    // array_keys() - Retorna todas as chaves de um array associativo
+
+    $chavesPessoa = array_keys($pessoa);
+    echo "Chaves do array pessoa:<br>";
+    foreach ($chavesPessoa as $chave) {
+        echo "- " . $chave . "<br>";
+    }
+
+    // array_values() - Retorna todos os valores de um array associativo
+
+    $valoresPessoa = array_values($pessoa);
+    echo "Valores do array pessoa:<br>";
+    foreach ($valoresPessoa as $valor) {
+        echo "- " . $valor . "<br>";
+    }
+
+    // array_key_exists() - Verifica se uma chave existe em um array associativo
+
+    if (array_key_exists("idade", $pessoa)) {
+        echo "A chave 'idade' existe no array pessoa.<br>";
+    } else {
+        echo "A chave 'idade' não existe no array pessoa.<br>";
+    }
+
+    
+
 ?>
