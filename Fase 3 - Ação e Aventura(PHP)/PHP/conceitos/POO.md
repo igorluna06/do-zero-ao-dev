@@ -87,6 +87,13 @@
     }
     ```
 
+#### Modificadores de Acesso
+
+- **Public**: A propriedade ou método pode ser acessado de qualquer lugar.
+- **Protected**: A propriedade ou método pode ser acessado apenas dentro da classe e por classes derivadas.
+- **Private**: A propriedade ou método só pode ser acessado dentro da própria classe.
+
+
 #### Vantagens da POO
 
 - **Modularidade**: O código é organizado em classes e objetos, facilitando a manutenção e a compreensão.
