@@ -36,7 +36,7 @@
 
 4. O servidor DNS responde ao navegador com o endereço IP, por exemplo, "192.168.1.1".
 
-![Cliente-Servidor-DNS](clienteXservidor.png)
+![Cliente-Servidor-DNS](imagensConteudo/clienteXservidor.png)
 
 ### Conceito de virtual host
 

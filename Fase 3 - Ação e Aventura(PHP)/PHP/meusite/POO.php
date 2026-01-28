@@ -1,7 +1,5 @@
 <?php
 
-    
-
     class CadastroPessoa{
 
         //Atributos
@@ -12,6 +10,7 @@
         public $cpf;
         public $login;
         public $senha;
+        private $apiKey = "xxxxxxxxxxxxxxxxxx";
 
         
 
@@ -64,6 +63,30 @@
         }
     }
 
+    class Local{
+
+        public $nomeLocal;
+        public $numeroDoLocal;
+
+    }
+
+    class Restaurante extends Local{
+
+        public $tipoComida;
+        public $telefone;
+
+        public function __construct($nome, $numero, $comida, $telefone){
+
+            $this->nomeLocal = $nome;
+            $this->numeroDoLocal = $numero;
+            $this->tipoComida = $comida;
+            $this->telefone = $telefone;
+
+        }
+    }
+
+    
+
     $novoProgramador = new Programador;
 
     $novoProgramador->nome = "Igor";
@@ -73,6 +96,8 @@
     $novoProgramador->nivel = "Estagiario";
     $novoProgramador->tempoAtuacao = "0 anos";
     $novoProgramador->linkGithub = "https://github.com/igorluna06";
+
+
 
 
     echo $novoProgramador->getNome();
@@ -106,6 +131,12 @@
     echo "<pre>";
 
     print_r($novoProgramador);
+
+    echo "<br>";
+
+    $novoRestaurante = new Restaurante("Restaurante Sapporo", "114", "Japonesa", "33 333333333");
+
+    print_r($novoRestaurante);
 
 
 

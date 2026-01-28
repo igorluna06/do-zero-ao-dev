@@ -103,3 +103,56 @@
 
 A POO é amplamente utilizada em PHP, especialmente em frameworks modernos como Laravel e Symfony, que aproveitam os conceitos de POO para criar aplicações robustas e escaláveis.
 
+#### Exemplo
+
+Classe Principal: 
+
+![classe principal](imagensConteudo/cadastroPessoa.png)
+
+Seus atributos :
+
+- Nome, Idade, email, cpf, login, senha, apiKey.
+
+Seus métodos:
+
+- getNome, getIdade, getEmail.
+
+----
+
+Classe que herda da classe principal:
+
+![classe que herda](imagensConteudo/Programador.png)
+
+Seus atributos:
+
+- linguagem, nivel, tempo de atuação, link do Github.
+
+Seus métodos:
+
+- getLinguagem, getNivel, getTempoAtuacao, getLinkGithub.
+
+---
+
+Criando um objeto e atribuindo valores ao objeto:
+
+![objeto](imagensConteudo/atribuindoValores.png)
+
+---
+
+Exibindo o estado do objeto Programador com o método print_r:
+
+![exibindo estado do objeto](imagensConteudo/outputExemplo.png)
+
+
+Explicação do exemplo:
+
+- No exemplo acima, temos uma classe principal chamada `Pessoa` com atributos como nome, idade, email, cpf, login, senha e apiKey, além de métodos para obter o nome, idade e email.
+
+- A classe `Programador` herda da classe `Pessoa` e adiciona seus próprios atributos, como linguagem, nível, tempo de atuação e link do GitHub, juntamente com métodos para obter esses valores.
+
+- Criamos um objeto da classe `Programador` e atribuímos valores a seus atributos. Finalmente, usamos o método `print_r` para exibir o estado do objeto, mostrando todos os atributos e seus valores.
+
+
+
+
+
