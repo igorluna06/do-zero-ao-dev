@@ -5,8 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendendo JS</title>
 </head>
-<body>
-    <h1>Curso JavaScript!</h1>
+<body onload="carregarTela()">
+    <h1 class="titulo" id="tituloPrincipal"></h1>
+
+    <h2 class="titulo"></h2>
+
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <button onmousedown="pressionarMouse()">Pressione</button>
+    <button onmouseenter="passarMouse()">Passe</button>
+    <button onclick="clicarMouse()">Clicar</button>
+
+    <br>
+    <br>
+
+    <Label>Nome</Label>
+    <input id="nome" onkeyup="pressionarTeclado()" type="text">
+
+    <span id="indicador"></span>
+
+    <br>
+
+
+    <h3 id="1"></h3>
+
+    <button id="btnAcao">Clicar</button>
+
+    <br>
+
+    <p id="2"></p>
+
+    <br>
+    <br>
+
+    <div>
+        <label for="">Numero 1</label>
+        <input type="number" id="num1">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="">Numero 2</label>
+        <input type="number" id="num2">
+    </div>
+
+    <br>
+
+    <button onclick="comparaNumero()">Comparar</button>
+
+    <br>
+    <br>
+
+    <span id="3"></span>
+
+    <br>
+
+    <div>
+        <label for="">Mes: </label>
+        <input type="number" id="num">
+    </div>
+
+    <br>
+
+    <button onclick="comparaMes()">Ver mês</button>
+
+    <br>
+
+    <span id="mes"></span>
 
     <script src="js/conteudoPratico.js"></script> <!--Forma de adicionar o JS na Web -->
 
