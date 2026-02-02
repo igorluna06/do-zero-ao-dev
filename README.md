@@ -1,4 +1,5 @@
 🚀 Do Zero ao Dev
+
 📘 Sobre o projeto
 
 Do Zero ao Dev é um repositório criado para documentar e organizar uma jornada real de aprendizado em programação, saindo do absoluto zero até os primeiros passos como desenvolvedor.
