@@ -323,4 +323,53 @@ let subtrair = (n1,n2) => {
 
 console.log(subtrair(2,1));
 
+// Manipulando Arrays
+
+let frutas = ["Maçã", "Banana", "Laranja"];
+
+frutas.push("Uva"); // Adiciona um elemento no final do array
+
+console.log(frutas);
+
+frutas.pop(); // Remove o ultimo elemento do array
+
+console.log(frutas);
+
+frutas.shift(); // Remove o primeiro elemento do array
+
+console.log(frutas);
+
+frutas.unshift("Morango"); // Adiciona um elemento no inicio do array
+
+console.log(frutas);
+
+let posicao = frutas.indexOf("Banana"); // Retorna a posição do elemento no array
+
+console.log(posicao);
+
+frutas.splice(1,1); // Remove o elemento da posição especificada (1º parâmetro) e a quantidade de elementos a serem removidos (2º parâmetro)
+
+console.log(frutas);
+
+// Iterando arrays
+
+for(let i = 0; i < frutas.length; i++){
+    
+    console.log(frutas[i]);
+}
+
+for(let fruta of frutas){
+    
+    console.log(fruta);
+
+}
+
+frutas.forEach(function(fruta, index){
+
+    console.log(index + " - " + fruta);
+});
+
+
+
+
 
