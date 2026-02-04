@@ -44,6 +44,22 @@
 
 }
 
+#status{
+
+    position: absolute;
+    top: 105px;
+    left: 50px;
+
+    border: 1px solid black;
+    height: 18px;
+    width: 25px;
+
+    border-radius: 5px;
+
+    text-align: 50%;
+    font-size: 15px;
+}
+
 .botoes
 {
     position: relative;

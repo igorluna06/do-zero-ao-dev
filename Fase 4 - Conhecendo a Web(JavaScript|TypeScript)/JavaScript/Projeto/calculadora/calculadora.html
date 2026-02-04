@@ -12,16 +12,14 @@
 
         <h1 id="tituloPrincipal"> Calculadora </h1>
 
-        <div id="divExibicaoSaida">
+        <input type="text" id="display" readonly>
 
-            <input type="text" id="display" readonly>
-
-        </div>
+        <span id="status">ON</span>
 
         <button class="botoes"  id="on" onclick="ligar()">ON</button>
         <button class="botoes" id="off" onclick="desligar()">OFF</button>
         <button class="botoes" id="clear" onclick="limparTela()">Limpar</button>
-        <button class="botoes" id="clear" onclick="apagarUltimo()">Apagar</button>
+        <button class="botoes" id="apagar" onclick="apagarUltimo()">Apagar</button>
         <br>
         <br>
         <button class="botoes" id="7" onclick="adicionarNumero('7')">7</button>
@@ -42,7 +40,8 @@
         <button class="botoes" id="multiplicacao" onclick="adicionarOperador('x')">x</button>
         <br>
         <br>
-        <button class="botoes" id="3">0</button>
+        <button class="botoes" id="0" onclick="adicionarNumero('0')">0</button>
+        <button class="botoes" id="." onclick="adicionarPontoF('.')">.</button>
         <button class="botoes" id="resultado">=</button>
         <button class="botoes" id="divisao" onclick="adicionarOperador('÷')">÷</button>
         
