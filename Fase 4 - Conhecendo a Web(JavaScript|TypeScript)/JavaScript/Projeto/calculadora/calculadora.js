@@ -171,8 +171,6 @@ function apagarUltimo(){
 
 function adicionarNumero(valor){
 
-    var ultimo = display.value[display.value.length - 1]
-
     const numeroAtual = getNumeroAtual();
 
     if(isOff == false){
