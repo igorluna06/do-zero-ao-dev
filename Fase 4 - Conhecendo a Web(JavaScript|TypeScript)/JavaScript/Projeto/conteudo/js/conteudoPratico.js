@@ -351,6 +351,22 @@ frutas.splice(1,1); // Remove o elemento da posição especificada (1º parâmet
 
 console.log(frutas);
 
+frutas.sort(); // Ordena os elementos do array em ordem alfabética
+
+console.log(frutas);
+
+// Verificando se um elemento existe no array
+
+let existe = frutas.includes("Laranja"); // Retorna true se o elemento existir no array, caso contrário, retorna false
+
+console.log(existe);
+
+// Buscando o indice do ultimo elemento do array
+
+let indice = frutas.lastIndexOf("Banana"); // Retorna o indice do ultimo elemento encontrado no array, caso contrário, retorna -1
+
+console.log(indice);
+
 // Iterando arrays
 
 for(let i = 0; i < frutas.length; i++){
@@ -368,6 +384,145 @@ frutas.forEach(function(fruta, index){
 
     console.log(index + " - " + fruta);
 });
+
+/* forEach vai 3 parametros que são
+
+1. Valor atual - valor do elemento atual do array
+2. Índice - índice do elemento atual do array
+3. Array original - o array original que está sendo iterado
+
+*/
+
+// Usando array.map()
+
+let numerosArray = [1,2,3,4,5];
+
+let numerosDobrados = numerosArray.map(function(numero){
+
+    return numero * 2;
+});
+
+/* Map vai 3 parametros que são
+
+1. Valor atual - valor do elemento atual do array
+2. Índice - índice do elemento atual do array
+3. Array original - o array original que está sendo iterado
+
+*/
+
+console.log(numerosDobrados);
+
+// Usando array.filter()
+
+let numerosPares = numerosArray.filter(function(numero){
+
+    return numero % 2 === 0;
+});
+
+console.log(numerosPares);
+
+/* Filter vai 3 parametros que são
+
+1. Valor atual - valor do elemento atual do array
+2. Índice - índice do elemento atual do array
+3. Array original - o array original que está sendo iterado
+
+*/
+
+// Usando array.reduce()
+
+let somaTotal = numerosArray.reduce(function(acumulador, numero){
+
+    return acumulador + numero;
+}, 0); // O segundo parâmetro é o valor inicial do acumulador
+
+console.log(somaTotal);
+
+/* Reduce vai 4 parametros que são 
+
+1. Acumulador - valor acumulado das iterações
+2. Valor atual - valor do elemento atual do array
+3. Índice - índice do elemento atual do array
+4. Array original - o array original que está sendo iterado
+
+*/
+
+// Manipulando strings
+
+let texto = "Olá, mundo!";
+
+console.log(texto.length); // Retorna o tamanho da string
+
+console.log(texto.toUpperCase()); // Converte a string para maiúscula
+
+console.log(texto.toLowerCase()); // Converte a string para minúscula
+
+console.log(texto.includes("mundo")); // Retorna true se a string contém a palavra "mundo", caso contrário, retorna false
+
+console.log(texto.indexOf("mundo")); // Retorna a posição da palavra "mundo" na string, caso contrário, retorna -1
+
+console.log(texto.replace("mundo", "JS")); // Substitui a palavra "mundo" por "JS" na string
+
+console.log(texto.split(", ")); // Divide a string em um array de substrings usando o separador ", "
+
+console.log(texto.trim()); // Remove os espaços em branco do início e do fim da string
+
+console.log(texto.charAt(0)); // Retorna o caractere na posição 0 da string
+
+console.log(texto.substring(0, 5)); // Retorna a substring da posição 0 até a posição 5 (exclusiva) da string
+
+console.log(texto.startsWith("Olá")); // Retorna true se a string começa com "Olá", caso contrário, retorna false
+
+console.log(texto.endsWith("!")); // Retorna true se a string termina com "!", caso contrário, retorna false
+
+// Concatenação de strings
+
+let nome = "Igor";
+let sobrenome = "Santos";
+
+let nomeCompleto = nome + " " + sobrenome; // Concatenação usando o operador +
+
+console.log(nomeCompleto);
+
+let nomeCompletoTemplate = `${nome} ${sobrenome}`; // Concatenação usando template literals
+
+console.log(nomeCompletoTemplate);
+
+// Metodo replace()
+
+let frase = "O rato roeu a roupa do rei de Roma";
+
+let novaFrase = frase.replace("rato", "gato"); // Substitui a primeira ocorrência de "rato" por "gato"
+
+console.log(novaFrase);
+
+let novaFraseGlobal = frase.replace(/rato/g, "gato"); // Substitui todas as ocorrências de "rato" por "gato" usando expressão regular com flag global
+
+console.log(novaFraseGlobal);
+
+// Metodo replaceAll()
+
+let novaFraseReplaceAll = frase.replaceAll("rato", "gato"); // Substitui todas as ocorrências de "rato" por "gato" usando o método replaceAll()
+
+console.log(novaFraseReplaceAll);
+
+// Verificando string com StartsWith e EndsWith
+
+let texto2 = "JavaScript é uma linguagem de programação.";
+
+console.log(texto2.startsWith("JavaScript")); // Retorna true se a string começa com "JavaScript", caso contrário, retorna false
+
+console.log(texto2.endsWith(".")); // Retorna true se a string termina com ".", caso contrário, retorna false
+
+// Trabalhando com Template Strings
+
+let nome2 = "Maria";
+let idade2 = 30;
+
+let apresentacao = `Olá, meu nome é ${nome2} e tenho ${idade2} anos.`; // Usando template literals para criar uma string com variáveis
+
+console.log(apresentacao);
+
 
 
 
