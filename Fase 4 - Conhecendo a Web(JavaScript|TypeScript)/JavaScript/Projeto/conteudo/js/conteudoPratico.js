@@ -523,6 +523,172 @@ let apresentacao = `Olá, meu nome é ${nome2} e tenho ${idade2} anos.`; // Usan
 
 console.log(apresentacao);
 
+// Usando PadStart e PadEnd
+
+let numeroString = "5";
+
+let numeroComPadStart = numeroString.padStart(3, "0"); // Adiciona zeros à esquerda até a string ter 3 caracteres
+
+console.log(numeroComPadStart);
+
+let numeroComPadEnd = numeroString.padEnd(3, "0"); // Adiciona zeros à direita até a string ter 3 caracteres
+
+console.log(numeroComPadEnd);
+
+// Repetindo strings com Repeat
+
+let textoRepetido = "Olá! ".repeat(3); // Repete a string "Olá! " 3 vezes
+
+console.log(textoRepetido);
+
+// Introdução a Orientação a Objetos
+
+class Pessoa { // Definindo a classe Pessoa
+
+    constructor(nome, idade){
+
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    apresentar(){
+
+        return `Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
+    }
+}
+
+let pessoa1 = new Pessoa("João", 25); // Criando um objeto da classe Pessoa com o nome "João" e idade 25
+
+console.log(pessoa1.apresentar()); // Chamando o método apresentar() do objeto pessoa1, que retorna a string de apresentação com o nome e idade da pessoa.
+
+// Acessando metodos e atributos de um objeto
+
+console.log(pessoa1.nome); // Acessando o atributo nome do objeto pessoa1
+
+console.log(pessoa1.idade); // Acessando o atributo idade do objeto pessoa1
+
+pessoa1.idade = 26; // Modificando o atributo idade do objeto pessoa1
+
+console.log(pessoa1.apresentar()); // Verificando a apresentação atualizada do objeto pessoa1 com a nova idade
+
+// Usando getters e setters
+
+class Carro {
+    
+    constructor(marca, modelo){
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    get descricao(){
+        return `Carro: ${this.marca} ${this.modelo}`;
+    }
+
+    set alterarModelo(novoModelo){
+        this.modelo = novoModelo;
+    }
+}
+
+let carro1 = new Carro("Toyota", "Corolla");
+
+console.log(carro1.descricao); // Usando o getter para obter a descrição do carro
+
+carro1.alterarModelo = "Camry"; // Usando o setter para alterar o modelo do carro
+
+console.log(carro1.descricao); // Verificando a descrição atualizada do carro   
+
+// Herança em classes
+
+class Animal {
+    
+    constructor(nome){
+        this.nome = nome;
+    }
+
+    fazerSom(){
+        return "Som genérico de animal";
+    }
+}
+
+class Cachorro extends Animal { // A classe Cachorro herda da classe Animal
+
+    constructor(nome, raca){
+        super(nome); // Chama o construtor da classe pai (Animal)
+        this.raca = raca;
+    }
+
+    fazerSom(){ // Sobrescreve o método fazerSom() da classe pai
+        return "Latido";
+    }
+}
+
+let cachorro1 = new Cachorro("Rex", "Labrador");
+
+console.log(cachorro1.nome); // Acessando a propriedade nome herdada da classe Animal
+
+console.log(cachorro1.raca); // Acessando a propriedade raca da classe Cachorro
+
+console.log(cachorro1.fazerSom()); // Chamando o método fazerSom() sobrescrito na classe Cachorro
+
+// Trabalhando com Polimorfismo
+
+class Forma { // Classe base
+    
+    area(){
+        return 0;
+    }
+}
+
+class Retangulo extends Forma { // Classe derivada
+    
+    constructor(largura, altura){
+        super();
+        this.largura = largura;
+        this.altura = altura;
+    }
+
+    area(){ // Sobrescreve o método area() da classe Forma
+        return this.largura * this.altura;
+    }
+}
+
+class Circulo extends Forma { // Classe derivada
+    
+    constructor(raio){
+        super();
+        this.raio = raio;
+    }
+
+    area(){ // Sobrescreve o método area() da classe Forma
+        return Math.PI * Math.pow(this.raio, 2);
+    }
+}
+
+let formas = [new Retangulo(5, 10), new Circulo(7)]; // Array de formas (Retangulo e Circulo)
+
+formas.forEach(function(forma){ // Itera sobre cada forma no array
+
+    console.log("Área: " + forma.area()); // Chama o método area() apropriado para cada forma (Retangulo ou Circulo)
+});
+
+// Trabalhando com construtor com herança
+
+class PessoaFisica extends Pessoa { // A classe PessoaFisica herda da classe Pessoa
+
+    constructor(nome, idade, cpf){
+        super(nome, idade); // Chama o construtor da classe pai (Pessoa)
+        this.cpf = cpf;
+    }
+
+    apresentar(){ // Sobrescreve o método apresentar() da classe Pessoa
+        return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu CPF é ${this.cpf}.`;
+    }
+}
+
+let pessoa2 = new PessoaFisica("Ana", 28, "123.456.789-00");
+
+console.log(pessoa2.apresentar()); // Chamando o método apresentar() do objeto pessoa2, que retorna a string de apresentação com o nome, idade e CPF da pessoa. 
+
 
 
 
