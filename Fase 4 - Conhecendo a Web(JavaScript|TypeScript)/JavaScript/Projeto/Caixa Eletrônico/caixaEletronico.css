@@ -1,0 +1,40 @@
+.titulo{
+
+    font-family: Arial;
+}
+
+.div{
+
+    text-align: center;
+}
+
+.input{
+
+    height: 45px;
+    width: 320px;
+    margin-top: 40px;
+    padding-left: 15px;
+
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#tituloPrincipal{
+
+    font-size: 90px;
+    
+}
+
+#tituloSecundario{
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-size: 40px;
+}
+
+.botoes{
+
+    border-radius: 10px;
+}
+
+
