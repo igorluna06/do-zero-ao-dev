@@ -1,0 +1,19 @@
+#tabelaExtrato{
+
+    position: relative;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 80px;
+}
+
+.tituloColunas{
+
+    background-color: whitesmoke;
+    border: 1px solid black;
+    font-size: 25px;
+    font-family: arial;
+    height: 40px;
+    width: 150px;
+}
+
