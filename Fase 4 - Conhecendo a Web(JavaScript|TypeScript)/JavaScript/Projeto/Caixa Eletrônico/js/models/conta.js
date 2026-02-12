@@ -1,15 +1,18 @@
-class conta{
+export class Conta{
 
     saldo = 0;
     limiteNegativo = -500;
+    nomeUsuario = "";
     cpf = "";
     senha = "";
     extrato = [];
 
-    constructor(cpf,senha){
+    constructor(nome,cpf,senha){
 
+        this.nomeUsuario = nome;
         this.cpf = cpf;
         this.senha = senha;
+        
     }
 
     getSaldo(){
@@ -37,6 +40,8 @@ class conta{
         
         this.extrato.push(movimentacao);
 
+        return true;
+
     }
 
     saque(valorSacado){
@@ -59,6 +64,8 @@ class conta{
         }
         
         this.extrato.push(movimentacao);
+
+        return true;
 
     }
 
