@@ -21,17 +21,22 @@
 
         <br><br>
 
-        <input class="input" id="cadastroCPF" type="text" placeholder="CPF">
+        <input class="input" id="cadastroCPF" maxlength="11" type="text" placeholder="CPF">
 
         <br><br>
 
-        <input class="input" id="cadastroSenha" type="text" placeholder="SENHA">
+        <input class="input" id="cadastroSenha" type="password" placeholder="SENHA">
 
         <br><br>
+
+        <span class="spanErro" id="spanErroCadastro"></span>
+
+        <br>
 
         <button class="botoesCadastro botoes" id="criarConta"> Criar conta </button>
 
     </div>
     
+    <script type="module" src="../js/UI/events.js"></script>
 </body>
 </html>

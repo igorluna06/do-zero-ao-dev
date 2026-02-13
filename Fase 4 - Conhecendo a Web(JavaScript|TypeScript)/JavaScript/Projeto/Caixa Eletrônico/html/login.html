@@ -6,6 +6,7 @@
     <title>Caixa Eletronico</title>
     <link rel="stylesheet" href="/Fase 4 - Conhecendo a Web(JavaScript|TypeScript)/JavaScript/Projeto/Caixa Eletrônico/css/login.css">
     <link rel="stylesheet" href="/Fase 4 - Conhecendo a Web(JavaScript|TypeScript)/JavaScript/Projeto/Caixa Eletrônico/css/global.css">
+    
 </head>
 <body id="login">
     <div class="div" id="cabecalhoLogin">
@@ -17,17 +18,23 @@
     </div>
     <div class="div" id="corpoLogin">
 
-        <input class="input" id="CPF" type="text" placeholder="CPF" onfocus="inputCpf()">
+        <input class="input" id="CPF" maxlength="11" type="text" placeholder="CPF">
 
         <br><br>
 
-        <input class="input" id="senha" type="text" placeholder="SENHA">
+        <input class="input" id="senha" type="password" placeholder="SENHA">
 
         <br><br>
+
+        <span class="spanErro" id="spanErroLogin"></span>
+
+        <br>
 
         <button class="botoesLogin botoes" id="entrarLogin"> Entrar </button>
         <button class="botoesLogin botoes" id="cadastrar"> Cadastrar </button>
 
     </div>
+
+    <script type="module" src="../js/UI/events.js"></script>
 </body>
 </html>

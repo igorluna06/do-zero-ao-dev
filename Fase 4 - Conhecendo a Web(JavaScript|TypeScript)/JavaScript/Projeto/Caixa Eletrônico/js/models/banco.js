@@ -4,30 +4,48 @@ export class Banco{
 
     listaContas = [];
 
+    constructor(){
+
+        this.listaContas = [];
+
+        const contasSalvas = localStorage.getItem("contas");
+
+        if(contasSalvas){
+
+            const contasSalvasConvertidas = JSON.parse(contasSalvas);
+
+            contasSalvasConvertidas.forEach(conta => {
+                const Novaconta = new Conta(conta.nomeUsuario, conta.cpf, conta.senha);
+
+                this.listaContas.push(Novaconta);
+            });
+        }
+    }
+
     criarConta(nome, cpf, senha){
 
-        const cpfConvertido = String(cpf);
+        if(nome === "" || cpf === "" || senha === "") return false;
 
-        if(cpfConvertido.length != 11) return false;
+        if(cpf.length != 11) return false;
 
-        if(this.listaContas.some(conta => conta.cpf === cpfConvertido)) return false;
+        if(this.listaContas.some(conta => conta.cpf === cpf)) return false;
 
-        const contaCriada = new Conta(nome, cpfConvertido, senha);
+        const contaCriada = new Conta(nome, cpf, senha);
 
         this.listaContas.push(contaCriada);
+
+        this.salvarContas();
         
         return true;
     }
 
     buscarConta(cpf){
 
-        const cpfConvertido = String(cpf);
+        const contaEncontrada = this.listaContas.find(conta => conta.cpf === cpf);
 
-        const contaEncontrada = this.listaContas.find(conta => conta.cpf === cpfConvertido);
+        if(contaEncontrada) return contaEncontrada;
 
-        if(!contaEncontrada) return false;
-
-        return contaEncontrada;
+        return false;
     }
 
     autenticacao(cpf,senhaDigitada){
@@ -40,6 +58,12 @@ export class Banco{
 
         return false;
 
+    }
+
+    salvarContas(){
+
+        const contasJSON = JSON.stringify(this.listaContas);
+        localStorage.setItem("contas", contasJSON);
     }
 
 

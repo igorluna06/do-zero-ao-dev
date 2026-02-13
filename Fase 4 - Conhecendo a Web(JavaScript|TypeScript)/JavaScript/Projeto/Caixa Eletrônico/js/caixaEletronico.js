@@ -1,4 +1,4 @@
-import { Banco } from "./models/banco";
+import { Banco } from "./models/banco.js";
 
 export class CaixaEletronico{
 
@@ -10,7 +10,7 @@ export class CaixaEletronico{
 
         const loginDigitado = this.banco.autenticacao(cpf, senha);
 
-        if(!loginDigitado) return false;
+        if(loginDigitado === false) return false;
 
         this.contaLogada = loginDigitado;
 
