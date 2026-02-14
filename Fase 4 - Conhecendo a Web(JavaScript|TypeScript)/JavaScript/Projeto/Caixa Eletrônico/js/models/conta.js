@@ -20,22 +20,31 @@ export class Conta{
         return this.saldo;
     }
 
+    getNome(){
+
+        const separadorNome = this.nomeUsuario.split(" ");
+
+        return separadorNome[0];
+    }
+
     deposito(valorDepositado){
+
+        const valorConvertidoD = Number(valorDepositado);
 
         const dataAtual = new Date();
         const dia = String(dataAtual.getDate()).padStart(2,'0');
         const mes = String(dataAtual.getMonth() + 1).padStart(2,'0');
         const ano = dataAtual.getFullYear();
 
-        if(valorDepositado < 1 ) return false;
+        if(valorConvertidoD < 1 ) return false;
 
-        this.saldo += valorDepositado;
+        this.saldo += valorConvertidoD;
 
         let movimentacao = {
 
             data: `${dia}/${mes}/${ano}`,
             tipo: "Depósito",
-            valor: valorDepositado
+            valor: valorConvertidoD
         }
         
         this.extrato.push(movimentacao);
@@ -46,21 +55,23 @@ export class Conta{
 
     saque(valorSacado){
 
+        const valorConvertidoS = Number(valorSacado);
+
         const dataAtual = new Date();
 
         const dia = String(dataAtual.getDate()).padStart(2,'0');
         const mes = String(dataAtual.getMonth() + 1).padStart(2,'0');
         const ano = dataAtual.getFullYear();
 
-        if((this.saldo - valorSacado) < this.limiteNegativo || valorSacado < 1 ) return false;
+        if((this.saldo - valorConvertidoS) < this.limiteNegativo || valorConvertidoS < 1 ) return false;
 
-        this.saldo -= valorSacado;
+        this.saldo -= valorConvertidoS;
 
         let movimentacao = {
 
             data: `${dia}/${mes}/${ano}`,
             tipo: "Saque",
-            valor: valorSacado
+            valor: valorConvertidoS
         }
         
         this.extrato.push(movimentacao);

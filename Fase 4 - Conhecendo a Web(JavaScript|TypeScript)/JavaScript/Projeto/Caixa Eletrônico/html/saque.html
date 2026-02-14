@@ -16,7 +16,7 @@
 
         <h3 class="titulo" id="tituloSecundario"> Saque</h3>
 
-        <strong><span class="spanSaldo" id="spanSaldoMenu"> Saldo: R$ </span></strong>
+        <span class="spanSaldo" id="spanSaldoSaque"></span>
     </div>
     <div class="div" id="corpoSaque">
 
@@ -24,9 +24,15 @@
 
         <br><br>
 
+        <span class="spanErro" id="spanErroSaque"></span>
+
+        <br>
+
         <button class="botoesOperacoes botoes" id="confirmarSaque"> Confirmar saque</button>
-        <button class="botoesOperacoes botoes" id="voltar"> Voltar para o menu</button>
+        <button class="botoesOperacoes botoes botaoSair" id="voltar"> Voltar para o menu</button>
 
     </div>
+
+    <script type="module" src="../js/UI/events.js"></script>
 </body>
 </html>

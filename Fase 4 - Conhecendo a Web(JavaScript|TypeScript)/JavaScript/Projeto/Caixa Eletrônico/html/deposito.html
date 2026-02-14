@@ -16,7 +16,7 @@
 
         <h3 class="titulo" id="tituloSecundario"> Depósito</h3>
 
-        <strong><span class="spanSaldo" id="spanSaldoMenu"> Saldo: R$ </span></strong>
+        <span class="spanSaldo" id="spanSaldoDeposito"></span>
     </div>
     <div class="div" id="corpoDeposito">
 
@@ -24,9 +24,15 @@
 
         <br><br>
 
+        <span class="spanErro" id="spanErroDeposito"></span>
+
+        <br>
+
         <button class="botoesOperacoes botoes" id="confirmarDeposito"> Confirmar depósito</button>
-        <button class="botoesOperacoes botoes" id="voltar"> Voltar para o menu</button>
+        <button class="botoesOperacoes botoes botaoSair" id="voltar"> Voltar para o menu</button>
 
     </div>
+
+    <script type="module" src="../js/UI/events.js"></script>
 </body>
 </html>

@@ -4,6 +4,8 @@ export class Banco{
 
     listaContas = [];
 
+    contaAtiva = null;
+
     constructor(){
 
         this.listaContas = [];
@@ -15,10 +17,25 @@ export class Banco{
             const contasSalvasConvertidas = JSON.parse(contasSalvas);
 
             contasSalvasConvertidas.forEach(conta => {
-                const Novaconta = new Conta(conta.nomeUsuario, conta.cpf, conta.senha);
+                const novaConta = new Conta(conta.nomeUsuario, conta.cpf, conta.senha);
 
-                this.listaContas.push(Novaconta);
+                novaConta.saldo = conta.saldo;
+                novaConta.limiteNegativo = conta.limiteNegativo;
+                novaConta.extrato = conta.extrato;
+
+                this.listaContas.push(novaConta);
             });
+        }
+
+        const cpfSalvo = localStorage.getItem("contaAtiva");
+
+        if(cpfSalvo){
+
+            const conta = this.buscarConta(cpfSalvo);
+            if(conta){
+
+                this.contaAtiva = conta;
+            }
         }
     }
 
@@ -54,9 +71,23 @@ export class Banco{
 
         if(contaAutenticacao === false) return false;
 
-        if(contaAutenticacao.senha === senhaDigitada) return contaAutenticacao;
+        if(contaAutenticacao.senha === senhaDigitada){
+
+            this.contaAtiva = contaAutenticacao;
+
+            localStorage.setItem("contaAtiva", cpf);
+
+            return contaAutenticacao;
+        };
 
         return false;
+
+    }
+
+    logout(){
+
+        this.contaAtiva = null;
+        localStorage.removeItem("contaAtiva");
 
     }
 

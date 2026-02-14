@@ -4,15 +4,11 @@ export class CaixaEletronico{
 
     banco = new Banco();
 
-    contaLogada = null;
-
     login(cpf, senha){
 
         const loginDigitado = this.banco.autenticacao(cpf, senha);
 
         if(loginDigitado === false) return false;
-
-        this.contaLogada = loginDigitado;
 
         return true;
 
@@ -20,15 +16,17 @@ export class CaixaEletronico{
 
     logout(){
 
-        this.contaLogada = null;
+        this.banco.logout();
 
     }
 
     sacar(valor){
 
-        if(this.contaLogada === null) return false;
+        if(!this.banco.contaAtiva) return false;
 
-        const saque = this.contaLogada.saque(valor);
+        const saque = this.banco.contaAtiva.saque(valor);
+
+        this.banco.salvarContas();
 
         return saque;
 
@@ -36,9 +34,11 @@ export class CaixaEletronico{
 
     depositar(valor){
 
-        if(this.contaLogada === null) return false;
+        if(!this.banco.contaAtiva) return false;
 
-        const deposito = this.contaLogada.deposito(valor);
+        const deposito = this.banco.contaAtiva.deposito(valor);
+
+        this.banco.salvarContas();
 
         return deposito;
 
