@@ -1,10 +1,8 @@
-#tabelaExtrato{
+#divTabela{
+    display: inline-block;
+    max-height: 320px;
+    overflow-y: auto;
 
-    position: relative;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%,-50%);
-    margin-top: 80px;
 }
 
 .tituloColunas{
@@ -15,5 +13,17 @@
     font-family: arial;
     height: 40px;
     width: 150px;
+
 }
+
+#corpoTabelaExtrato tr td{
+
+    background-color: white;
+    border-collapse: collapse;
+    border: 1px solid black;
+    height: 35px;
+    overflow-y: auto;
+    
+}
+
 

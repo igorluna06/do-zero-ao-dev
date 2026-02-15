@@ -63,6 +63,8 @@ export class Conta{
         const mes = String(dataAtual.getMonth() + 1).padStart(2,'0');
         const ano = dataAtual.getFullYear();
 
+        if(valorConvertidoS < 1 ) return false;
+
         if((this.saldo - valorConvertidoS) < this.limiteNegativo || valorConvertidoS < 1 ) return false;
 
         this.saldo -= valorConvertidoS;

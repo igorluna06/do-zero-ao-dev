@@ -161,6 +161,16 @@ function depositar(){
 const botaoDepositar = document.getElementById('confirmarDeposito');
 if(botaoDepositar != null) botaoDepositar.addEventListener("click", depositar);
 
+// Extrato
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if(!caixa.banco.contaAtiva) return;
+
+    render.atualizarExtrato(caixa.banco.contaAtiva.getExtrato());
+    
+});
+
 
 
 
