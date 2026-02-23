@@ -1,0 +1,29 @@
+#divTabela{
+    display: inline-block;
+    max-height: 320px;
+    overflow-y: auto;
+
+}
+
+.tituloColunas{
+
+    background-color: whitesmoke;
+    border: 1px solid black;
+    font-size: 25px;
+    font-family: arial;
+    height: 40px;
+    width: 150px;
+
+}
+
+#corpoTabelaExtrato tr td{
+
+    background-color: white;
+    border-collapse: collapse;
+    border: 1px solid black;
+    height: 35px;
+    overflow-y: auto;
+    
+}
+
+

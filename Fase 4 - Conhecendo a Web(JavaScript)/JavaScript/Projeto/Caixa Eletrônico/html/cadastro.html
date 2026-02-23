@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/Fase 4 - Conhecendo a Web(JavaScript|TypeScript)/JavaScript/Projeto/Caixa Eletrônico/css/cadastro.css">
+    <link rel="stylesheet" href="/Fase 4 - Conhecendo a Web(JavaScript|TypeScript)/JavaScript/Projeto/Caixa Eletrônico/css/global.css">
+</head>
+<body>
+    <div class="div" id="cabecalhoCadastro">
+
+        <h1 class="titulo" id="tituloPrincipal"> Banco Digital </h1>
+
+        <h3 class="titulo" id="tituloSecundario"> Cadastro </h3>
+
+    </div>
+    <div class="div" id="corpoCadastro">
+
+        <input class="input" id="nome" type="text" placeholder="NOME COMPLETO">
+
+        <br><br>
+
+        <input class="input" id="cadastroCPF" maxlength="11" type="text" placeholder="CPF">
+
+        <br><br>
+
+        <input class="input" id="cadastroSenha" type="password" placeholder="SENHA">
+
+        <br><br>
+
+        <span class="spanErro" id="spanErroCadastro"></span>
+
+        <br>
+
+        <button class="botoesCadastro botoes" id="criarConta"> Criar conta </button>
+
+    </div>
+    
+    <script type="module" src="../js/UI/events.js"></script>
+</body>
+</html>
