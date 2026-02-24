@@ -1,0 +1,13 @@
+{
+  "name": "projeto-gerenciador-tarefas",
+  "version": "1.0.0",
+  "description": "Gerenciador de tarefas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "Igor Soarde de Luna",
+  "license": "ISC",
+  "type": "module"
+}
