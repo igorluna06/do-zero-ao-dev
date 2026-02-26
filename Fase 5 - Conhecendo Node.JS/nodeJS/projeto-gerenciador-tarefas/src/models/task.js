@@ -1,10 +1,10 @@
-export class Task{
+export default class Task{
 
     nameTask = "";
     description = "";
     conclusion = false;
 
-    __constructor(nameTask, description){
+    constructor(nameTask, description){
 
         this.nameTask = nameTask;
         this.description = description;
