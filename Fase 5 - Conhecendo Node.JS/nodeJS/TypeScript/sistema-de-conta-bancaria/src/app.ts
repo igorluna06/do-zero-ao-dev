@@ -1,6 +1,6 @@
 function app(){
 
-    console.log("conta bancaria");
+    console.log("app");
 }
 
 export default app;

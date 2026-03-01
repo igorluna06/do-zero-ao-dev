@@ -5,7 +5,7 @@ function customerIdGenerator(){
     countCustomer++;
     return countCustomer;
 
-}
+};
 
 export default {
     customerIdGenerator,
