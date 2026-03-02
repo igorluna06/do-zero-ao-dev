@@ -1,6 +1,9 @@
+import CustomerService from "./services/CustomerServices.js";
+
 function app(){
 
-    console.log("app");
+    const customerServices: CustomerService = new CustomerService();
+    console.log(customerServices.takeAll());
 }
 
 export default app;

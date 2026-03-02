@@ -13,7 +13,6 @@ class CustomerRepository{
 
         this.customers.push(customer);
 
-        return true;
     };
 
     findById(id: number){
@@ -33,12 +32,14 @@ class CustomerRepository{
 
     findAll(){
 
-        return this.customers;
+        const copyCustomers: Array<Customer> = this.customers.slice();
+
+        return copyCustomers;
     };
 
     delete(id: number){
 
-        const customerIndexRemove: number | undefined = this.customers.findIndex(customer => customer === this.findById(id));
+        const customerIndexRemove: number | undefined = this.customers.findIndex(customer => customer.getCustomerId() === id);
 
         this.customers.splice(customerIndexRemove, 1);
     };
