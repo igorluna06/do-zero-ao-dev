@@ -14,7 +14,7 @@ class CustomerService{
         cpfValidator(cpf);
 
         if(this.customerRepository.findByCpf(cpf)){
-            throw new Error("CPF já cadastrado!")
+            throw new Error("CPF já cadastrado!");
         }
 
         const customer: Customer = new Customer(idGenerator.customerIdGenerator(), nameCustomer, cpf);
