@@ -7,42 +7,42 @@ class CustomerRepository{
     constructor(){
 
         this.customers = [];
-    };
+    }
 
-    post(customer: Customer){
+    save(customer: Customer){
 
         this.customers.push(customer);
 
-    };
+    }
 
-    findById(id: number){
+    findById(id: number): Customer | undefined{
 
         const customerFinded: Customer | undefined = this.customers.find(customer => customer.getCustomerId() === id);
 
         return customerFinded;
-    };
+    }
 
-    findByCpf(cpf: string){
+    findByCpf(cpf: string): Customer | undefined{
 
         const customerFinded: Customer | undefined = this.customers.find(customer => customer.getCpf() === cpf);
 
         return customerFinded;
 
-    };
+    }
 
-    findAll(){
+    findAll(): Array<Customer>{
 
         const copyCustomers: Array<Customer> = this.customers.slice();
 
         return copyCustomers;
-    };
+    }
 
-    delete(id: number){
+    delete(cpf: string){
 
-        const customerIndexRemove: number | undefined = this.customers.findIndex(customer => customer.getCustomerId() === id);
+        const customerIndexRemove: number | undefined = this.customers.findIndex(customer => customer.getCpf() === cpf);
 
         this.customers.splice(customerIndexRemove, 1);
-    };
+    }
 }
 
 export default CustomerRepository;

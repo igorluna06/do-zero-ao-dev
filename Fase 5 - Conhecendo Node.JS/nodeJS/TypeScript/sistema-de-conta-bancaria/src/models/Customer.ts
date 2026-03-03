@@ -9,17 +9,17 @@ class Customer{
         this.customerId = customerId;
         this.customerName = customerName;
         this.cpf = cpf;
-    };
+    }
 
-    getCustomerId(){
+    getCustomerId(): number{
 
         return this.customerId;
-    };
+    }
 
-    getCpf(){
+    getCpf(): string{
 
         return this.cpf;
-    };
+    }
 
 }
 

@@ -1,15 +1,17 @@
+import Customer from "./Customer.js";
+
 class AccountBank{
 
     private accountId: number;
     private accountNumber: string;
-    private customerId: number;
+    private customer: Customer;
     private balance: number = 0.0;
 
-    constructor(accountId: number, accountNumber: string, customerId: number){
+    constructor(accountId: number, accountNumber: string, customer: Customer){
 
         this.accountId = accountId;
         this.accountNumber = accountNumber;
-        this.customerId = customerId;
+        this.customer = customer;
 
     }
 
@@ -23,10 +25,27 @@ class AccountBank{
         this.balance -= amount;
     }
 
-    getBalance(){
+    getBalance(): number{
 
         return this.balance;
     }
+
+    getAccountId(): number{
+
+        return this.accountId;
+    }
+
+    getAccountOwnerId(): number{
+
+        return this.customer.getCustomerId();
+
+    }
+
+    getAccountNumber(): string{
+
+        return this.accountNumber;
+    }
+
 
 }
 

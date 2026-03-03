@@ -1,6 +1,6 @@
 import CustomerRepository from "../repository/CustomerRepository.js";
 import Customer from "../models/Customer.js";
-import idGenerator from "../utils/idGenerator.js";
+import valueGenerator from "../utils/valueGenerator.js";
 import cpfValidator from "../utils/validators/cpfValidator.js";
 import nameValidator from "../utils/validators/nameValidator.js";
 
@@ -17,26 +17,13 @@ class CustomerService{
             throw new Error("CPF já cadastrado!");
         }
 
-        const customer: Customer = new Customer(idGenerator.customerIdGenerator(), nameCustomer, cpf);
+        const customer: Customer = new Customer(valueGenerator.customerIdGenerator(), nameCustomer, cpf);
 
-        this.customerRepository.post(customer);
+        this.customerRepository.save(customer);
 
-    };
+    }
 
-    takeByCustomerId(id: number){
-
-        const customerFound: Customer | undefined = this.customerRepository.findById(id);
-
-        if(!customerFound){
-
-            throw new Error("Cliente não encontrado!");
-        }
-
-        return customerFound;
-
-    };
-
-    takeByCpf(cpf: string){
+    takeByCpf(cpf: string): Customer{
 
         cpfValidator(cpf);
 
@@ -48,27 +35,29 @@ class CustomerService{
         }
 
         return customerFound;
-    };
+    }
 
-    takeAll(){
+    takeAll(): Array<Customer>{
 
         const CustomerList: Array<Customer> = this.customerRepository.findAll();
 
         return CustomerList;
-    };
+    }
 
-    delete(id: number){
+    delete(cpf: string){
 
-        const customerFound: Customer | undefined = this.customerRepository.findById(id);
+        cpfValidator(cpf);
+
+        const customerFound: Customer | undefined = this.customerRepository.findByCpf(cpf);
 
         if(!customerFound){
 
             throw new Error("Cliente não encontrado!")
         }else{
-            this.customerRepository.delete(id);
+            this.customerRepository.delete(cpf);
         }
 
-    };
+    }
 }
 
 export default CustomerService;
