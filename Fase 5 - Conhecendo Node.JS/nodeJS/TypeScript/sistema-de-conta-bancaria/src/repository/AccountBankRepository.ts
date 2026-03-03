@@ -8,6 +8,13 @@ class AccountBankRepository{
 
         this.accounts = [];
     }
+
+    post(accountBank: AccountBank){
+
+        this.accounts.push(accountBank);
+    }
+
+    
 }
 
 export default AccountBankRepository;
