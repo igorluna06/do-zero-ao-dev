@@ -8,7 +8,7 @@ class CustomerService{
 
     private customerRepository: CustomerRepository = new CustomerRepository();
 
-    saveCustomer(nameCustomer: string, cpf: string){
+    saveCustomer(nameCustomer: string, cpf: string): void{
 
         nameValidator(nameCustomer);
         cpfValidator(cpf);
@@ -44,7 +44,9 @@ class CustomerService{
         return CustomerList;
     }
 
-    delete(cpf: string){
+    delete(cpf: string): void{
+
+        //Adicionar lógica de apagar contas quando deletar o cliente!!!!!!!!!!
 
         cpfValidator(cpf);
 

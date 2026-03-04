@@ -9,7 +9,7 @@ class CustomerRepository{
         this.customers = [];
     }
 
-    save(customer: Customer){
+    save(customer: Customer): void{
 
         this.customers.push(customer);
 
@@ -37,7 +37,7 @@ class CustomerRepository{
         return copyCustomers;
     }
 
-    delete(cpf: string){
+    delete(cpf: string): void{
 
         const customerIndexRemove: number | undefined = this.customers.findIndex(customer => customer.getCpf() === cpf);
 

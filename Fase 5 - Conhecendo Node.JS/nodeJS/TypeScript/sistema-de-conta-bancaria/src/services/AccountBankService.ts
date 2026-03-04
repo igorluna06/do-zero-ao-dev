@@ -2,12 +2,18 @@ import AccountBankRepository from "../repository/AccountBankRepository.js";
 import Customer from "../models/Customer.js";
 import valueGenerator from "../utils/valueGenerator.js";
 import AccountBank from "../models/AccountBank.js";
+import amountValidator from "../utils/validators/amountValidator.js";
+import accountNumberValidator from "../utils/validators/accountNumberValidator.js";
 
 class AccountBankService{
 
     private accountBankRepository: AccountBankRepository= new AccountBankRepository();
 
     saveAccount(customer: Customer){
+
+        if(this.accountBankRepository.findByOwnerCpf(customer.getCpf())){
+            throw new Error("Cliente já possui uma conta!");
+        }
 
         const accountNumber: string = valueGenerator.accountNumberGenerator();
 
@@ -23,6 +29,8 @@ class AccountBankService{
 
     takeByAccountNumber(accountNumber: string): AccountBank{
 
+        accountNumberValidator(accountNumber);
+
         const accountFound: AccountBank | undefined = this.accountBankRepository.findByAccountNumber(accountNumber);
 
         if(!accountFound){
@@ -31,6 +39,52 @@ class AccountBankService{
         }
 
         return accountFound;
+    }
+
+    deposit(accountNumber: string, amount: number){
+
+        accountNumberValidator(accountNumber);
+
+        const accountFound: AccountBank = this.takeByAccountNumber(accountNumber);
+
+        amountValidator(amount);
+
+        accountFound.deposit(amount);
+
+        this.accountBankRepository.save(accountFound);
+
+    }
+
+    withdraw(accountNumber: string, amount: number){
+
+        accountNumberValidator(accountNumber);
+
+        const accountFound: AccountBank = this.takeByAccountNumber(accountNumber);
+
+        amountValidator(amount);
+
+        accountFound.withdraw(amount);
+
+        this.accountBankRepository.save(accountFound);
+    }
+
+    transfer(accountNumberOrigin: string, accountNumberDestination: string, amount: number){
+
+        accountNumberValidator(accountNumberOrigin);
+        accountNumberValidator(accountNumberDestination);
+
+        amountValidator(amount);
+
+        const originAccountFound: AccountBank = this.takeByAccountNumber(accountNumberOrigin);
+        const destinationAccountFound: AccountBank = this.takeByAccountNumber(accountNumberDestination);
+
+        if(originAccountFound.getAccountNumber() === destinationAccountFound.getAccountNumber()) throw new Error("Não pode se auto transferir");
+
+        originAccountFound.withdraw(amount);
+        destinationAccountFound.deposit(amount);
+
+        this.accountBankRepository.save(originAccountFound);
+        this.accountBankRepository.save(destinationAccountFound);
     }
 
     takeAll(): Array<AccountBank>{
@@ -42,14 +96,16 @@ class AccountBankService{
 
     delete(accountNumber: string){
 
-        const accountFound: AccountBank | undefined = this.accountBankRepository.findByAccountNumber(accountNumber);
+        accountNumberValidator(accountNumber);
+
+        const accountFound: AccountBank | undefined = this.takeByAccountNumber(accountNumber);
 
         if(!accountFound){
 
-            throw new Error("Conta não encontrada!")
-        }else{
-            this.accountBankRepository.delete(accountNumber);
+            throw new Error("Conta não encontrada!");
         }
+
+        this.accountBankRepository.delete(accountNumber);
     }
 }
 

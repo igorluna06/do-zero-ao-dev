@@ -9,7 +9,7 @@ class AccountBankRepository{
         this.accounts = [];
     }
 
-    save(accountBank: AccountBank){
+    save(accountBank: AccountBank): void{
 
         const accountIndex: number = this.accounts.findIndex(account => account.getAccountId() === accountBank.getAccountId());
 
@@ -28,7 +28,12 @@ class AccountBankRepository{
         return accountFound;
     }
 
-    
+    findByOwnerCpf(ownerCpf: string): AccountBank | undefined{
+
+        const accountFound: AccountBank | undefined = this.accounts.find(account => account.getAccountOwner().getCpf() === ownerCpf);
+
+        return accountFound;
+    }
 
     findByAccountNumber(accountNumber: string): AccountBank | undefined{
 
@@ -37,7 +42,7 @@ class AccountBankRepository{
         return accountFound;
     }
 
-    delete(accountNumber: string){
+    delete(accountNumber: string): void{
 
         const accountIndexRemove: number = this.accounts.findIndex(account => account.getAccountNumber() === accountNumber);
 

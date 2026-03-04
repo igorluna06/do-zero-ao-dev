@@ -15,16 +15,21 @@ class AccountBank{
 
     }
 
-    deposit(amount: number){
+    deposit(amount: number): void{
 
         this.balance += amount;
     }
 
-    withdraw(amount: number){
+    withdraw(amount: number): void{
+
+        
+        if(this.balance - amount < 0){
+            throw new Error("Saldo insuficiente!")
+        }
 
         this.balance -= amount;
     }
-
+         
     getBalance(): number{
 
         return this.balance;
@@ -35,9 +40,9 @@ class AccountBank{
         return this.accountId;
     }
 
-    getAccountOwnerId(): number{
+    getAccountOwner(): Customer{
 
-        return this.customer.getCustomerId();
+        return this.customer;
 
     }
 

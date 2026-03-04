@@ -1,6 +1,6 @@
 import {containsOnlyLettersAndSpaces} from "./stringValidation.js";
 
-function nameValidator(name: string){
+function nameValidator(name: string): void{
 
     if(!name || name.trim().length === 0){
         throw new Error("Nome não pode ser vazio!");
