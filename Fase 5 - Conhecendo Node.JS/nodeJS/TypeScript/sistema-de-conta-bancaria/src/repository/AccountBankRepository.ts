@@ -28,9 +28,9 @@ class AccountBankRepository{
         return accountFound;
     }
 
-    findByOwnerCpf(ownerCpf: string): AccountBank | undefined{
+    findByOwnerCpf(ownerCpf: string): Array<AccountBank> | undefined{
 
-        const accountFound: AccountBank | undefined = this.accounts.find(account => account.getAccountOwner().getCpf() === ownerCpf);
+        const accountFound: Array<AccountBank> | undefined = this.accounts.filter(account => account.getAccountOwner().getCpf() === ownerCpf);
 
         return accountFound;
     }
@@ -55,7 +55,6 @@ class AccountBankRepository{
 
         return copyAccounts; 
     }
-
 
 }
 

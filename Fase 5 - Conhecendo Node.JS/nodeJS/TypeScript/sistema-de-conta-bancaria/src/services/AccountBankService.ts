@@ -4,6 +4,7 @@ import valueGenerator from "../utils/valueGenerator.js";
 import AccountBank from "../models/AccountBank.js";
 import amountValidator from "../utils/validators/amountValidator.js";
 import accountNumberValidator from "../utils/validators/accountNumberValidator.js";
+import cpfValidator from "../utils/validators/cpfValidator.js";
 
 class AccountBankService{
 
@@ -11,19 +12,20 @@ class AccountBankService{
 
     saveAccount(customer: Customer){
 
-        if(this.accountBankRepository.findByOwnerCpf(customer.getCpf())){
+        if(this.accountBankRepository.findByOwnerCpf(customer.getCpf())?.length === 0){
+            const accountNumber: string = valueGenerator.accountNumberGenerator();
+
+            if(this.accountBankRepository.findByAccountNumber(accountNumber)){
+            throw new Error("Conta já existe!");
+            }
+
+            const accountBank: AccountBank = new AccountBank(valueGenerator.accountIdGenerator(), accountNumber, customer);
+
+            this.accountBankRepository.save(accountBank);
+            
+        }else{
             throw new Error("Cliente já possui uma conta!");
         }
-
-        const accountNumber: string = valueGenerator.accountNumberGenerator();
-
-        if(this.accountBankRepository.findByAccountNumber(accountNumber)){
-            throw new Error("Conta já existe!");
-        }
-
-        const accountBank: AccountBank = new AccountBank(valueGenerator.accountIdGenerator(), accountNumber, customer);
-
-        this.accountBankRepository.save(accountBank);
 
     }
 
@@ -39,6 +41,21 @@ class AccountBankService{
         }
 
         return accountFound;
+    }
+
+    takeByAccountOwnerCpf(cpf: string){
+
+        cpfValidator(cpf);
+
+        const accountFound: Array<AccountBank> | undefined = this.accountBankRepository.findByOwnerCpf(cpf);
+
+        if(!accountFound){
+
+            throw new Error("Conta não encontrada!");
+        }
+
+        return accountFound;
+
     }
 
     deposit(accountNumber: string, amount: number){
@@ -106,6 +123,25 @@ class AccountBankService{
         }
 
         this.accountBankRepository.delete(accountNumber);
+    }
+
+    deleteBycpf(cpf: string){
+
+        const listAccountFound: Array<AccountBank> = this.takeByAccountOwnerCpf(cpf);
+
+        listAccountFound.forEach(account => {
+            this.delete(account.getAccountNumber());
+        });
+    }
+
+    viewBalance(accountNumber: string): number{
+
+        accountNumberValidator(accountNumber);
+
+        const accountBalanceFound: number | undefined = this.takeByAccountNumber(accountNumber).getBalance();
+
+        return accountBalanceFound;
+
     }
 }
 

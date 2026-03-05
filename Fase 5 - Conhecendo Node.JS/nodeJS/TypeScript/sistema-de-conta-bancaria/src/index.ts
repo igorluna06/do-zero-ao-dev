@@ -1,3 +1,11 @@
 import app from "./app/app.js";
 
-app();
+
+function main(){
+
+    const appRun: app = new app();
+
+    appRun.start();
+}
+
+main();
