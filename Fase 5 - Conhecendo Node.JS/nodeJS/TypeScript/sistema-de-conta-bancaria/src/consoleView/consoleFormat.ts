@@ -51,7 +51,7 @@ async function listCustomer(list: Array<any>): Promise<void>{
     list.forEach(customer =>{
 
         index++;
-        console.log(index + "-> Nome: " + customer.customerName + "| CPF: " + customer.getCpf());
+        console.log(index + "-> Nome: " + customer.customerName + " | CPF: " + customer.getCpf());
         
     });
 
@@ -66,12 +66,12 @@ async function listAccount(list: Array<any>): Promise<void>{
     list.forEach(account =>{
 
         index++;
-        console.log(index + "-> Cliente: " + account.getAccountOwner().customerName + "| Número da conta: " + account.getAccountNumber() + "| Saldo: R$" + showMoneyFormat(account.getBalance()));
+        console.log(index + "-> Cliente: " + account.getAccountOwner().customerName + " | Número da conta: " + account.getAccountNumber() + " | " + showMoneyFormat(account.getBalance()));
         
     });
 }
 
-async function showMoneyFormat(amount: number): Promise<string>{
+function showMoneyFormat(amount: number): string{
 
     if(amount < 0){
         throw new Error("Valor de quantia vazia!");

@@ -4,7 +4,7 @@ import consoleFormat from "../consoleView/consoleFormat.js";
 import { question } from "../consoleView/input.js";
 
 
-class app{
+class App{
 
     private accountService: AccountBankService = new AccountBankService();
     private customerService: CustomerService = new CustomerService(this.accountService);
@@ -49,25 +49,46 @@ class app{
             switch(selectOptions){
 
                 case 1:
+
+                try{
+
                     const customerName: string = await question("Nome do Cliente: ");
                     const customerCpf: string = await question("CPF: ");
 
                     this.customerService.saveCustomer(customerName, customerCpf);
 
                     console.log("Cliente registrado com sucesso!");
+
+                }catch (Error){
+
+                    console.log("Registro inválido!");
+                }finally{
+
                     await question("");
-                    break;
+                }
+                       
+                break;
                 
                 case 2:
 
-                    consoleFormat.listCustomer(this.customerService.takeAll());
+                    consoleFormat.listCustomer(await this.customerService.takeAll());
 
-                    const customerCpfRemove: string = await question("CPF do Cliente: ");
+                    try{
+                        const customerCpfRemove: string = await question("CPF do Cliente: ");
 
-                    this.customerService.delete(customerCpfRemove);
+                        this.customerService.delete(customerCpfRemove);
 
-                    console.log("Cliente removido com sucesso!");
-                    await question("");
+                        console.log("Cliente removido com sucesso!");
+                    }
+                    catch (Error)
+                    {
+                        console.log("Remoção inválida!");
+                    }
+                    finally
+                    {
+                        await question("");
+                    }
+
                     break;
 
                 case 3:
@@ -105,24 +126,41 @@ class app{
 
                     consoleFormat.listCustomer(this.customerService.takeAll());
 
-                    const customer = this.customerService.takeByCpf(await question("CPF: "));
+                    try{
+                        const customer = this.customerService.takeByCpf(await question("CPF: "));
 
-                    this.accountService.saveAccount(customer);
+                        this.accountService.saveAccount(customer);
 
-                    console.log("Conta criada com sucesso!");
-                    await question("");
+                        console.log("Conta criada com sucesso!");
+                    }
+                    catch (Error){
+
+                        console.log("Criação inválida!");
+                    }
+                    finally{
+
+                        await question("");
+                    } 
                     break;
 
                 case 2:
 
                     consoleFormat.listAccount(this.accountService.takeAll());
 
-                    const accountNumberRemove = await question("Número da conta: ");
+                    try{
+                        const accountNumberRemove = await question("Número da conta: ");
 
-                    this.accountService.delete(accountNumberRemove);
+                        this.accountService.delete(accountNumberRemove);
 
-                    console.log("Conta removida com sucesso!");
-                    await question("");
+                        console.log("Conta removida com sucesso!");
+                    }
+                    catch (Error){
+                        console.log("Remoção inválida!");
+                    }
+                    finally{
+                        await question("");
+                    }
+
                     break;
 
                 case 3:
@@ -135,48 +173,88 @@ class app{
 
                     consoleFormat.listAccount(this.accountService.takeAll());
 
-                    const accountNumberOrigin: string = await question("Número da conta de origem: ");
-                    const accountNumberDestination: string = await question("Número da conta destinataria: ");
+                    try{
 
-                    const amountTransfer: number = parseFloat(await question("Valor: R$ "));
+                        console.log("\n==== Transferência ====\n");
 
-                    this.accountService.transfer(accountNumberOrigin, accountNumberDestination, amountTransfer);
-                    console.log("Transferência feita com sucesso!");
-                    await question("");
+                        const accountNumberOrigin: string = await question("Número da conta de origem: ");
+                        const accountNumberDestination: string = await question("Número da conta destinataria: ");
+
+                        const amountTransfer: number = parseFloat(await question("Valor: R$ "));
+
+                        this.accountService.transfer(accountNumberOrigin, accountNumberDestination, amountTransfer);
+                        console.log("Transferência feita com sucesso!");
+                    }
+                    catch (Error){
+
+                        console.log("Transferência inválida!");
+                    }
+                    finally{
+
+                        await question("");
+                    }
+
                     break;
 
                 case 5:
 
                     consoleFormat.listAccount(this.accountService.takeAll());
 
-                    const accountNumberDeposit: string = await question("\nNúmero da conta: ");
+                    try{
 
-                    accountBalance = this.accountService.takeByAccountNumber(accountNumberDeposit).getBalance();
+                        console.log("\n==== Depósito ====\n");
 
-                    console.log(await consoleFormat.showMoneyFormat(accountBalance));
+                        const accountNumberDeposit: string = await question("\nNúmero da conta: ");
 
-                    const amountDeposit: number = parseFloat(await question("\nValor: R$ "));
+                        accountBalance = this.accountService.takeByAccountNumber(accountNumberDeposit).getBalance();
 
-                    this.accountService.deposit(accountNumberDeposit, amountDeposit);
-                    console.log("Depósito feito com sucesso!");
-                    await question("");
+                        console.log(consoleFormat.showMoneyFormat(accountBalance));
+
+                        const amountDeposit: number = parseFloat(await question("\nValor: R$ "));
+
+                        this.accountService.deposit(accountNumberDeposit, amountDeposit);
+                        console.log("Depósito feito com sucesso!");
+
+                    }
+                    catch (Error){
+
+                        console.log("Depósito inválido!");
+                    }
+                    finally{
+                        
+                        await question("");
+                    }
                     break;
 
                 case 6:
 
                     consoleFormat.listAccount(this.accountService.takeAll());
 
-                    const accountNumberWithDraw: string = await question("\nNúmero da conta: ");
+                    try{
 
-                    accountBalance = this.accountService.takeByAccountNumber(accountNumberWithDraw).getBalance();
+                        console.log("\n==== Saque ====\n");
 
-                    console.log(await consoleFormat.showMoneyFormat(accountBalance));
+                        const accountNumberWithDraw: string = await question("\nNúmero da conta: ");
 
-                    const amountDepositWithDraw: number = parseFloat(await question("Valor: R$ "));
+                        accountBalance = this.accountService.takeByAccountNumber(accountNumberWithDraw).getBalance();
 
-                    this.accountService.deposit(accountNumberWithDraw, amountDepositWithDraw);
-                    console.log("Saque feito com sucesso!");
-                    await question("");
+                        console.log(consoleFormat.showMoneyFormat(accountBalance));
+
+                        const amountWithDraw: number = parseFloat(await question("Valor: R$ "));
+
+                        this.accountService.withdraw(accountNumberWithDraw, amountWithDraw);
+                        console.log("Saque feito com sucesso!");
+
+                    }
+                    catch (Error){
+
+                        console.log("Saque inválido!");
+                    }
+                    finally{
+
+                        await question("");
+                    }
+
                     break;
 
                 default:
@@ -190,4 +268,4 @@ class app{
 
 }
 
-export default app;
+export default App;

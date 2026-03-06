@@ -1,9 +1,9 @@
-import app from "./app/app.js";
+import App from "./app/app.js";
 
 
 function main(){
 
-    const appRun: app = new app();
+    const appRun: App = new App();
 
     appRun.start();
 }
